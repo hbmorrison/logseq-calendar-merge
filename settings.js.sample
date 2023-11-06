@@ -1,0 +1,27 @@
+// Calendars to merge from.
+// "[X]" is what is placed in front of your calendar event in the shared calendar.
+// Use "" if you want none.
+const CALENDARS_TO_MERGE = {
+  'Me': 'my.address@gmail.com',
+  'Shared': 'calendarid@group.calendar.google.com',
+};
+
+// The ID of the shared calendar
+const CALENDAR_TO_MERGE_INTO = 'othercalendarid@group.calendar.google.com';
+
+// Number of days in the past and future to sync.
+const SYNC_DAYS_IN_PAST = 7;
+const SYNC_DAYS_IN_FUTURE = 7;
+
+// Unique character to use in the title of the event to identify it as a clone.
+// This is used to delete the old events.
+// https://unicode-table.com/en/200B/
+const SEARCH_CHARACTER = '\u200B';
+
+// This is prefixed to the calendar summary, which will place event pages under
+// a hierarchy.
+//
+// e.g. const HIERARCHY = 'meetings/';
+const HIERARCHY = '';
+
+const ENDPOINT_BASE = 'https://www.googleapis.com/calendar/v3/calendars';
