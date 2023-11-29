@@ -80,8 +80,8 @@ function createEvents(startTime, endTime) {
       // If the event is not marked as busy, ignore it
       if (!event.transparency || event.transparency !== 'transparent') {
         if (event.start.dateTime) {
-          var day = Utilities.formatDate(new Date(event.start.dateTime), event.start.timeZone, "dd");
-          var daysuffix = "th";
+          let day = Utilities.formatDate(new Date(event.start.dateTime), event.start.timeZone, "dd");
+          let  daysuffix = "th";
           switch (day % 10) {
             case 1:
               daysuffix = "st";
@@ -93,9 +93,10 @@ function createEvents(startTime, endTime) {
               daysuffix = "rd";
               break;
           }
-          var eventdate = Utilities.formatDate(new Date(event.start.dateTime), event.start.timeZone, "MMM dd'" + daysuffix + "', yyyy");
-          var eventtime = Utilities.formatDate(new Date(event.start.dateTime), event.start.timeZone, "HH:mm");
-          var capitalized = event.summary.charAt(0).toUpperCase() + event.summary.slice(1);
+          let eventdate = Utilities.formatDate(new Date(event.start.dateTime), event.start.timeZone, "MMM dd'" + daysuffix + "', yyyy");
+          let eventtime = Utilities.formatDate(new Date(event.start.dateTime), event.start.timeZone, "HH:mm");
+          let capitalized = event.summary.charAt(0).toUpperCase() + event.summary.slice(1);
+          capitalized = capitalized.replace(/[\/]/g, "-");
           requestBody.push({
             method: 'POST',
             endpoint: `${ENDPOINT_BASE}/${CALENDAR_TO_MERGE_INTO}/events`,
